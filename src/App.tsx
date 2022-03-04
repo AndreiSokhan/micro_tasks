@@ -21,6 +21,12 @@ function App() {
         {id: 11, name: "Cristopher", age: 108},
     ]);
 
+    // const topCars = [
+    //     {manufacturer:'BMW', model:'m5cs'},
+    //     {manufacturer:'Mercedes', model:'e63s'},
+    //     {manufacturer:'Audi', model:'rs6'}
+    // ]
+
     return (
         <>
             <Header title={'New TITLE'}/>

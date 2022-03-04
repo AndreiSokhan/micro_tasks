@@ -1,15 +1,14 @@
-// import React from 'react';
+import React from 'react';
 
 type NewComponentType = {
     students: Array<StudentsType>
 }
 
-type = StudentsType = {
+type StudentsType = {
     id: number,
     name: string,
     age: number
-
-}
+};
 
 export const NewComponent = (props: NewComponentType) => {
     return (
@@ -18,7 +17,7 @@ export const NewComponent = (props: NewComponentType) => {
 
                 return (
                     <li key={objectFromStudentArray.id}>
-                        <span>{objectFromStudentArray.name}</span>
+                        <span>{objectFromStudentArray.name} age: </span>
                         <span>{objectFromStudentArray.age}</span>
                     </li>
                 )
