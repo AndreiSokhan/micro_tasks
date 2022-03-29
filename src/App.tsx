@@ -4,6 +4,7 @@ import {Header} from "./site/Header";
 import {Body} from "./site/Body";
 import {NewComponent} from "./site/NewComponent";
 import {Footer} from "./site/Footer";
+import {AutoComponent} from "./site/AutoComponent";
 
 function App() {
 
@@ -21,18 +22,19 @@ function App() {
         {id: 11, name: "Cristopher", age: 108},
     ]);
 
-    // const topCars = [
-    //     {manufacturer:'BMW', model:'m5cs'},
-    //     {manufacturer:'Mercedes', model:'e63s'},
-    //     {manufacturer:'Audi', model:'rs6'}
-    // ]
+    const topCars = [
+        {manufacturer:'BMW', model:'m5cs'},
+        {manufacturer:'Mercedes', model:'e63s'},
+        {manufacturer:'Audi', model:'rs6'}
+    ]
 
     return (
         <>
-            <Header title={'New TITLE'}/>
-            <Body title={'New BODY'}/>
-            <NewComponent students={students}/>
-            <Footer title={'New FOOTER'}/>
+            {/*<Header title={'New TITLE'}/>*/}
+            {/*<Body title={'New BODY'}/>*/}
+            {/*<NewComponent students={students}/>*/}
+            <AutoComponent topCars={topCars}/>
+            {/*<Footer title={'New FOOTER'}/>*/}
         </>
     );
 }
