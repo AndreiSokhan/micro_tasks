@@ -5,6 +5,7 @@ import {Body} from "./site/Body";
 import {NewComponent} from "./site/NewComponent";
 import {Footer} from "./site/Footer";
 import {AutoComponent} from "./site/AutoComponent";
+import {Button} from "./components/Button";
 
 function App() {
 
@@ -28,13 +29,34 @@ function App() {
         {manufacturer:'Audi', model:'rs6'}
     ]
 
+    //Стейт для отработки метода filter:
+    const [money, setMoney] = useState([
+        { banknots: 'Dollars', value: 100, number: ' a1234567890' },
+        { banknots: 'Dollars', value: 50, number: ' z1234567890' },
+        { banknots: 'RUBLS', value: 100, number: ' w1234567890' },
+        { banknots: 'Dollars', value: 100, number: ' e1234567890' },
+        { banknots: 'Dollars', value: 50, number: ' c1234567890' },
+        { banknots: 'RUBLS', value: 100, number: ' r1234567890' },
+        { banknots: 'Dollars', value: 50, number: ' x1234567890' },
+        { banknots: 'RUBLS', value: 50, number: ' v1234567890' },
+    ])
+
+    const Button1Foo = (subscriber: string, age:number) => {
+        console.log(subscriber, age)
+    }
+    const Button2Foo = (subscriber: string, age:number) => {
+        console.log(subscriber, age)
+    }
+
     return (
         <>
             {/*<Header title={'New TITLE'}/>*/}
             {/*<Body title={'New BODY'}/>*/}
             {/*<NewComponent students={students}/>*/}
-            <AutoComponent topCars={topCars}/>
+            {/*<AutoComponent topCars={topCars}/>*/}
             {/*<Footer title={'New FOOTER'}/>*/}
+            <Button name={'MyYouTubeChanel-1'} callBack={()=>Button1Foo('Vasya', 55)}/>
+            <Button name={'MyYouTubeChanel-1'} callBack={()=>Button2Foo ('Ivan', 55)}/>
         </>
     );
 }
