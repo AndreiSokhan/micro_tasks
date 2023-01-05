@@ -1,14 +1,9 @@
-// import {NewComponent} from "./NewComponent";
-
-type BodyType = {
-    title: string
+type FooterType={
+   titleForBody:string
 }
 
-
-export const Body = (props: BodyType) => {
-    return (
-        <div>{props.title}
-        {/*<NewComponent students={students}/>*/}
-        </div>
-    )
+export const Body = (props:FooterType) => {
+   return(
+      <div>{props.titleForBody}</div>
+   )
 }

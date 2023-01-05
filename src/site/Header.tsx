@@ -1,10 +1,11 @@
+
 type HeaderType={
-    title:string
+   title:string
 }
 
 
 export const Header = (props:HeaderType) => {
-    return (
-        <>{props.title}</>
-    )
+  return (
+      <div>{props.title}</div>
+   )
 }
