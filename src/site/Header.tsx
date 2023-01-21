@@ -1,11 +1,10 @@
 
-type HeaderType={
+type PropsHeaderType={
    title:string
 }
 
-
-export const Header = (props:HeaderType) => {
-  return (
-      <div>{props.title}</div>
+export const Header = (props:PropsHeaderType) => {
+   return (
+      <header>{props.title}</header>
    )
 }
