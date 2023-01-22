@@ -12,10 +12,10 @@ export const Cars = () => {
          <table>
             {topCars.map((el, index)=>{
                return(
-                  <tr key={index +1}>
-                     <th>{index+1}</th>
-                     <th>{el.manufacturer}</th>
-                     <th>{el.model}</th>
+                  <tr key={index}>
+                     <td>{index+1}</td>
+                     <td>{el.manufacturer}</td>
+                     <td>{el.model}</td>
                   </tr>
                )
             })}
