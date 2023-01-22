@@ -7,7 +7,7 @@ import {Stydents} from "./components/Stydents";
 import {Cars} from "./components/Cars";
 import {Button} from "./components/Button";
 import {UniversalButton} from "./components/UniversalButton";
-
+import {Сounter} from "./components/Сounter";
 
 function App() {
    let [students, setStudents] = useState([
@@ -38,29 +38,29 @@ function App() {
    //    {banknots: 'Rubls', value: 50, number: ' v1234567890'},
    // ])
 
-   const Buton_1Foo = (subscriber:string, age:number) => {
+   const Buton_1Foo = (subscriber: string, age: number) => {
       console.log(subscriber, age)
    }
-   const Buton_2Foo = (subscriber:string) => {
+   const Buton_2Foo = (subscriber: string) => {
       console.log(subscriber)
    }
    const Buton_3Foo = () => {
       console.log('Im stupid button')
    }
-   
-   
+
+
    return (
       <>
+         <Сounter/>
          <>{/*<Header title={'New Header'}/>*/}
             {/*<Body titleForBody={'New Body'}/>*/}
             {/*<Footer titleForFooter={'New Footer'}/>*/}</>
          <Stydents students={students}/>
          {/*<Button/>*/}
-         <UniversalButton name={'YouTubeChanel_1'} callBack={()=>Buton_1Foo ('Vasya', 21 )}/>
-         <UniversalButton name={'YouTubeChanel_2'} callBack={()=>Buton_2Foo ('Ivan')}/>
+         <UniversalButton name={'YouTubeChanel_1'} callBack={() => Buton_1Foo('Vasya', 21)}/>
+         <UniversalButton name={'YouTubeChanel_2'} callBack={() => Buton_2Foo('Ivan')}/>
          <UniversalButton name={'Stup'} callBack={Buton_3Foo}/>
          <Cars/>
-
       </>
    )
 }
