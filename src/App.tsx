@@ -9,6 +9,10 @@ import {Button} from "./components/Button";
 import {UniversalButton} from "./components/UniversalButton";
 import {Сounter} from "./components/Сounter";
 import {Filter} from "./components/Filter";
+import {findAllByDisplayValue} from "@testing-library/react";
+import {FullInput} from "./components/FullInput";
+import {Input} from "./components/Input";
+import {ButtonForInput} from "./components/ButtonForInput";
 
 export type filterType = 'All' | 'Rubls' | 'Dollars'
 
@@ -41,6 +45,24 @@ function App() {
       {banknots: 'Rubls', value: 50, number: ' v1234567890'},
    ])
 
+   let [message, setMessage] = useState([
+      {message:'message 1'},
+      {message:'message 2'},
+      {message:'message 3'}
+   ])
+
+   let [title, setTitle] = useState('')
+   // console.log(title)
+
+   const addMessage = (title:string) => {
+      const newMessage = {message:title};
+      setMessage([newMessage, ...message])
+   }
+   const callBackButtonHandler = () => {
+      addMessage(title)
+      setTitle('')
+   }
+
    const Buton_1Foo = (subscriber: string, age: number) => {
       console.log(subscriber, age)
    }
@@ -51,7 +73,7 @@ function App() {
       console.log('Im stupid button')
    }
 
-   let [filter, setFilter]= useState<filterType>('All')
+   let [filter, setFilter] = useState<filterType>('All')
 
    const moneyFilter = (nameButton: filterType) => {
       setFilter(nameButton)
@@ -64,6 +86,7 @@ function App() {
    if (filter === 'Dollars') {
       currentMoney = money.filter((el) => el.banknots === 'Dollars')
    }
+
 
 
    return (
@@ -82,7 +105,18 @@ function App() {
             money={money}
             moneyFilter={moneyFilter}
          />
+
+
+         <Input setTitle={setTitle} title={title}/>
+         <ButtonForInput title={'+'} callBack={callBackButtonHandler}/>
+         {/*<FullInput addMessage={addMessage}/>*/}
+         {message.map((el,index)=>{
+            return(
+               <div key={index}>{el.message}</div>
+            )
+         })}
       </>
+
    )
 }
 
