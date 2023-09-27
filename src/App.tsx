@@ -21,9 +21,15 @@ function App() {
       {id:11, name:"John", age:22 },
    ]);
 
+   let topCars = [
+      {manufacturer:'BMW', model:'m5cs'},
+      {manufacturer:'Mercedes', model:'e63s'},
+      {manufacturer:'Audi', model:'rs6'}
+   ]
+
    return (
       <>
-         <NewComponent students={students}/>
+         <NewComponent students={students} topCars={topCars}/>
       </>
    );
 };
