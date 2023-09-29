@@ -29,9 +29,10 @@ export const NewComponent = (props: NewComponentPropsType) => {
                );
             })}
          </ul>
+
+
          <table>
-            {/*<tr>*/}
-            {props.topCars.map((tr, index)=>{
+           {props.topCars.map((tr, index)=>{
                return(
                   <tr key={index}>
                      <th>{index+1}</th>
@@ -40,7 +41,6 @@ export const NewComponent = (props: NewComponentPropsType) => {
                   </tr>
                );
             })}
-            {/*</tr>*/}
 
          </table>
       </>
