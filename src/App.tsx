@@ -3,12 +3,15 @@ import './App.css';
 import {Header} from "./site/Header";
 import {Body} from "./site/Body";
 import {Footer} from "./site/Footer";
-import {NewComponent} from "./components/NewComponent";
+import {ArrStudents} from "./components/ArrStudents";
 import {log} from "util";
 import {Button} from "./components/Button";
+import {Counter} from "./components/Counter";
+import {YouTubeCh} from "./components/YouTubeCH";
+import {MoneyFilter} from "./components/MoneyFilter";
 
+export type FilterType = 'All' | 'RUBLS' | 'Dollars'
 
-type FilterType= 'All' | 'RUBLS' | 'Dollars'
 
 function App() {
 
@@ -30,6 +33,7 @@ function App() {
       {manufacturer: 'Mercedes', model: 'e63s'},
       {manufacturer: 'Audi', model: 'rs6'}
    ]
+
    const [money, setMoney] = useState([
       {banknots: 'Dollars', value: 100, number: ' a1234567890'},
       {banknots: 'Dollars', value: 50, number: ' z1234567890'},
@@ -41,72 +45,30 @@ function App() {
       {banknots: 'RUBLS', value: 50, number: ' v1234567890'},
    ])
 
-   const Button_1_Foo = (subscriber: string, age: number) => {
-      console.log(subscriber, age)
-   }
-   const Button_2_Foo = (subscriber: string) => {
-      console.log(subscriber)
-   }
-   const Button_3_Foo = () => {
-      console.log("styp")
-   }
-
-   // let a = 1
-   let [a, setA] = useState(1)
-
-   const onClickHandler = () => {
-      setA(++a)
-      console.log(a)
-   }
-   const onClickHandlerRest = () => {
-      setA(0)
-   }
-
    const [filter, setFilter] = useState<FilterType>('All')
 
-   let currentMoney = money;
-   if (filter === 'RUBLS') {
-      currentMoney = money.filter((filteredMoney) => filteredMoney.banknots === 'RUBLS');
-   }
+   let currentMoney = money
    if (filter === 'Dollars') {
-      currentMoney = money.filter((filteredMoney) => filteredMoney.banknots === 'Dollars');
+      currentMoney = money.filter((filteredMoney) => filteredMoney.banknots === 'Dollars')
+   }
+   if (filter === 'RUBLS') {
+      currentMoney = money.filter((filteredMoney) => filteredMoney.banknots === 'RUBLS')
    }
 
-   const onClickHandlerFilter = (nameButton: FilterType) => {
+   const onClickFilterHandler = (nameButton: FilterType) => {
       setFilter(nameButton)
    }
 
-
    return (
-      <div>
-         <h3>{a}</h3>
-         <button onClick={onClickHandler}>number</button>
-         <button onClick={onClickHandlerRest}>rest</button>
-
-         <div>
-            <Button name={'My youTube chanel-1'} callBack={() => Button_1_Foo("vasia", 21)}/>
-            <Button name={'My youTube chanel-2'} callBack={() => Button_2_Foo("Ivan")}/>
-            <Button name={"Styp"} callBack={Button_3_Foo}/>
-         </div>
-
-         <ul>
-            {currentMoney.map((ban, index) => {
-               return (
-                  <li key={index}>
-                     <span>{ban.banknots}</span>
-                     <span>{ban.value}</span>
-                     <span>{ban.number}</span>
-                  </li>
-               )
-            })}
-         </ul>
-         <button onClick={() => onClickHandlerFilter('Dollars')}>Dollars</button>
-         <button onClick={() => onClickHandlerFilter('RUBLS')}>RUBLS</button>
-         <button onClick={() => onClickHandlerFilter('All')}>All</button>
-
-
-         <NewComponent students={students} topCars={topCars}/>
-      </div>
+      <>
+         <Counter/>
+         <YouTubeCh/>
+         <ArrStudents students={students} topCars={topCars}/>
+         <MoneyFilter
+            money={currentMoney}
+            onClickFilterHandler={onClickFilterHandler}
+         />
+      </>
    );
 };
 

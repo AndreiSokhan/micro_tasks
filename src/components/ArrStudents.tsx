@@ -4,19 +4,18 @@ type NewComponentPropsType = {
    students: Array<StudentsPropsType>
    topCars: Array<TopCarsPropsType>
 }
-
 type StudentsPropsType = {
    id: number
    name: string
    age: number
 }
 
-type TopCarsPropsType={
-   manufacturer:string
-   model:string
+type TopCarsPropsType = {
+   manufacturer: string
+   model: string
 }
 
-export const NewComponent = (props: NewComponentPropsType) => {
+export const ArrStudents = (props: NewComponentPropsType) => {
    return (
       <>
          <ul>
@@ -32,10 +31,10 @@ export const NewComponent = (props: NewComponentPropsType) => {
 
 
          <table>
-           {props.topCars.map((tr, index)=>{
-               return(
+            {props.topCars.map((tr, index) => {
+               return (
                   <tr key={index}>
-                     <th>{index+1}</th>
+                     <th>{index + 1}</th>
                      <td>{tr.manufacturer}</td>
                      <td>{tr.model}</td>
                   </tr>
